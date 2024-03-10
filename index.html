@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="static/img/Ra.png">
+    <link rel="stylesheet" type="text/css" href="static/styles/s1.css" class="liiink"/>
+    <script type="text/javascript" src="f.js"></script>
+    <title>~ The Karnian Gallery ~</title>
+</head>
+<script>
+    function escInf(sectionId, dataArray){
+        for (let i=0; i<dataArray.length; i++){
+            const article = document.createElement('article');
+            const a = document.createElement('a');
+            const figure = document.createElement('figure');
+            const img = document.createElement('img');
+            const figCaptionName = document.createElement('figcaption');
+            const figCaptionPrice = document.createElement('figcaption'); // No se usa si es Works
+            const seccion = document.querySelector(`#${sectionId}`)
+
+            // console.log(`esta es la ${i} de ${sectionId}`)
+            img.classList.add('prodImg');
+            if(sectionId==='COMM'){
+                figCaptionPrice.classList.add('price');
+            }
+            
+            // Construir la estructura del elemento <article>
+            figure.appendChild(img);
+            figure.appendChild(figCaptionName);
+            if(sectionId==='COMM'){
+                figure.appendChild(figCaptionPrice);}
+            a.appendChild(figure);
+            article.appendChild(a);
+            seccion.appendChild(article);
+        }
+        if(sectionId==='COMM'){
+            loadComm(sectionId, dataArray);
+        }else{
+            loadWorks(sectionId, dataArray);
+        }
+    }
+        
+    const comm=[
+// ['03_004.png','Ilustración digital','5','[May-2023] Panel de cuento ilustrado']
+]
+    const work=[
+['HazbinHotel_001.png','Ilustración digital','[Mar-2024] Ese gato que sale en Hazbin Hotel','No he visto la serie más que el piloto y un fragmento donde sale ese gato. Está bonito.'],
+['KE_001.png','Ilustración digital','[Ene-2024] "Hola, Keith Emerson de ELP" "Hola, Tsumugi Kotobuki de K-On!"','Crossover ELPxMonas chinas. Siempre he creído que todo es mejor con crossovers de monas chinas.'],
+['03_001.png','Ilustración digital','[May-2023] Panel de cuento ilustrado','Estos páneles los dibujé para un trabajo de la uni. Iban acompañados de un cuento que también escribí y solo Dios sabe qué fue de él. Referencia del cartel: https://www.pinterest.jp/pin/76420524917382046'],
+['03_002.png','Ilustración digital','[May-2023] Panel de cuento ilustrado','Estos páneles los dibujé para un trabajo de la uni. Iban acompañados de un cuento que también escribí y solo Dios sabe qué fue de él. La historia trataba de un gato negro y un conejo blanco que se hace amigos. El gato era un solitario que rechazaban porque consideraban a los gatos negros como que daban mala suerte. El conejo era un niño ciego apasionado por la música. Estos dos se hacen amigos luego de que el gato escuchara al conejo tocar el violín un día en la escuela.'],
+['03_003.png','Ilustración digital','[May-2023] Panel de cuento ilustrado','Estos páneles los dibujé para un trabajo de la uni. Iban acompañados de un cuento que también escribí y solo Dios sabe qué fue de él.'],
+['03_004.png','Ilustración digital','[May-2023] Panel de cuento ilustrado','Estos páneles los dibujé para un trabajo de la uni. Iban acompañados de un cuento que también escribí y solo Dios sabe qué fue de él.'],
+['RogersProductions_001.png','Ilustración digital','[2022] Logo hecho para \'The Rogers Productions\'','Dibujé este logo para un \'\'\'The Rogers Productions\'\'\', que realmente solo representó 5 segundos más de longitud para un video que debía entregar en la escuela.'],
+['KChikito_001.gif','Animación digital','[???] Keith Chikito y Lobo Maloso','La primera animación que hice de Keith Chikito. No recuerdo muy bien por qué hice esto, pero debí tener un buen motivo.'],
+['Furros_001.png','Ilustración digital','[Feb-2024] Dragona','Idea propuesta por una respuesta misteriosa de un formulario que hice. La pregunta decía \'¿Cuál es tu clase favorita en D&D?\''],
+['TalesFTWoods_001.jpeg','Ilustración digital','[Feb-2023] Storyboard 1\\2 del juego \'Tales From The Woods\'','Videojuego que desarrolló nuestro equipo para un proyecto de escuela. El lore era que dos hermanos vivían felices en un bosque. Un día, mientras jugaban, Pai (el hermano menor) corre muy profundo en el bosque. Su hermano mayor Rael va tras él [1/2].'],
+['TalesFTWoods_002.jpeg','Ilustración digital','[Feb-2023] Storyboard 2\\2 del juego \'Tales From The Woods\'','Rael pierde de vista a Pai. Corre hasta llegar a un río que jamás había visto antes en el bosque, el cual es atravezado por un puente que no recuerda (y no podría volver) a cruzar antes. El juego no se terminó, pero al final de la historia se descubre que Pai había muerto y en la trama del juego, cada nivel representaba una etapa del Duelo de Rael por haber perdido a su hermano. [2/2]'],
+['TalesFTWoods_003.PNG','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'','Al final, no se usaron ningunos de estos dibujos.'],
+['TalesFTWoods_004.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'',''],
+['TalesFTWoods_005.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'',''],
+['TalesFTWoods_006.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'','Este árbol en particular me gustó mucho.'],
+['TalesFTWoods_007.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'',''],
+['TalesFTWoods_008.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'','En la programación del videojuego no se utilizaron ninguno de estos dibujos, pero me diverí mucho haciéndolos. '],
+['TalesFTWoods_009.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'',''],
+['TalesFTWoods_010.png','Ilustración digital','[Abr-2023] Arte conceptual del juego \'Tales From The Woods\'',''],
+['BB_001.gif','Animación digital','[Jul-2021] Proyectito','Animación hecha durante el claustro forzado porue me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.'],
+['BB_002.gif','Animación digital','[Jul-2021] Proyectito','Animación hecha durante el claustro forzado porue me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.'],
+['BB_003.gif','Animación digital','[Jul-2021] Proyectito','Animación hecha durante el claustro forzado porue me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.'],
+['BB_004.gif','Animación digital','[Jul-2021] "Barkus no existe, no puede hacerte daño". Barkus:','Animación hecha durante el claustro forzado porque me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.']]
+function cargar(){
+        escInf('COMM', comm);
+        escInf('WORK', work);
+        console.log("Ya se debió cargar todo jaja salu2. Si ocurre algún error, faor de demandar al Administrador.");
+    }
+</script>
+
+<body onload="cargar()">
+
+<header>
+    <div id="top-header">
+        <div id="logo">
+            <img src="static/img/Ra.png" />
+            <div class="T"><a class="TM">T</a>he <a class="TM">K</a>arnian <a class="TM">G</a>allery</div>
+        </div>
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li><a href="#">Top</a></li>
+                    <li><a href="#comm" style="color:crimson;">Comisiones</a></li>
+                    <li><a href="#work">W O R K S</a></li>
+                    <select name="PreviousReceiver" onchange="cambiarCss(this)" class="sss">
+                        <option value="1">Dark</option>
+                        <option value="2">Light</option>
+                        <!-- <option value="3">Darker!</option> -->
+                    </select>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<span class="topCont" id="topCont" style="display:none;">
+    <div class="top">
+        <div class="e1"></div>
+        <div class="e2">
+            <img class="x" src="static/img/X.png" onclick="cerrar()"/>
+            <p id="type"></p>
+            <p id="descrip"></p>
+            <p id="descrip2"></p>
+            <p id="prec"></p>
+        </div>
+    </div>
+</span>
+
+<span class="bienvenida" style="margin-top:70px;">
+    <div id="bin2">
+        <div class="ee1">
+            <img src="static/img/Kck.gif" style="height: min-content;width:100%;"/>
+        </div>
+        <div class="ee2">
+            <p id="p1">Bienvenido a</p><div class="TT"><a class="TTM">T</a>he <a class="TTM">K</a>arnian <a class="TTM">G</a>allery</div>
+            <p id="p2">El fin de esta págin es recopilar el arte que he hecho a lo largo del tiempo</p>
+            <p id="p2">Tenemos comisiones abiertas !!1!</p>
+            <p id="p3">Si deseas comisionarme, por favor contáctame al correo </p>
+            <hr/>
+        </div>
+    </div>
+</span>
+
+<div class="sep" id="comm"></div>
+<h1 class="titulo"><a class="Tit">C</a>omisiones</h1>
+<section class="galeria" id="COMM">
+</section>
+
+
+<div class="sep"  id="work"></div>
+<h1 class="titulo"><a class="Tit">W</a> O R K S</h1>
+<section class="galeria2" id="WORK">
+</section>
+
+</body>
+</html>
