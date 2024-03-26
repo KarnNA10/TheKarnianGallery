@@ -21,28 +21,33 @@
 
             // console.log(`esta es la ${i} de ${sectionId}`)
             img.classList.add('prodImg');
-            if(sectionId==='COMM'){
+            if(sectionId.slice(0,4)==='COMM'){
                 figCaptionPrice.classList.add('price');
             }
             
             // Construir la estructura del elemento <article>
             figure.appendChild(img);
             figure.appendChild(figCaptionName);
-            if(sectionId==='COMM'){
+            if(sectionId.slice(0,4)==='COMM'){
                 figure.appendChild(figCaptionPrice);}
             a.appendChild(figure);
             article.appendChild(a);
             seccion.appendChild(article);
         }
-        if(sectionId==='COMM'){
+        if(sectionId.slice(0,4)==='COMM'){
             loadComm(sectionId, dataArray);
         }else{
             loadWorks(sectionId, dataArray);
         }
     }
         
-    const comm=[
-// ['03_004.png','Ilustración digital','5','[May-2023] Panel de cuento ilustrado']
+    const comm01=[
+['P_Cara_Lineart.png','Ilustración digital','40','Cara - Lineart'],
+['P_HalfBod_Lineart.png','Ilustración digital','75','Medio Cuerpo - Lineart'],
+['P_Cara_Fullcolor.png','Ilustración digital','75','Cara - Full Color'],
+['P_HalfBod_Fullcolor.png','Ilustración digital','150','Medio Cuerpo - Full Color'],
+['P_FullBod_Lineart.png','Ilustración digital','150','Cuerpo Completo - Lineart'],
+['P_FullBod_Fullcolor.png','Ilustración digital','225','Cuerpo Completo - Full Color']
 ]
     const work=[
     ['PedroLore_001.png','Ilustración digital','[22-Mar-2024] Búho',''],
@@ -98,7 +103,7 @@
 ['BB_004.gif','Animación digital','[Jul-2021] "Barkus no existe, no puede hacerte daño". Barkus:','Animación hecha durante el claustro forzado porque me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.'],
 ['BB_005.gif','Animación digital','[Jul-2021] Diseño original de Savage Syd','Animación hecha durante el claustro forzado porque me dio COVID. Una parte del proyecto sin terminar inspirado en \'Benny the Bouncer\' de ELP.']]
 function cargar(){
-        escInf('COMM', comm);
+        escInf('COMM01', comm01);
         escInf('WORK', work);
         console.log("Ya se debió cargar todo jaja salu2. Si ocurre algún error, faor de demandar al Administrador.");
     }
@@ -116,7 +121,7 @@ function cargar(){
             <div id="menu">
                 <ul>
                     <li><a href="#">Top</a></li>
-                    <!-- <li><a href="#comm" style="color:crimson;">Comisiones</a></li> -->
+                    <li><a href="#comm" style="color:crimson;">Comisiones</a></li>
                     <li><a href="#work">W O R K S</a></li>
                     <select name="PreviousReceiver" onchange="cambiarCss(this)" class="sss">
                         <option value="1">Dark</option>
@@ -158,11 +163,17 @@ function cargar(){
     </div>
 </span>
 
-<!-- <div class="sep" id="comm"></div>
+<div class="sep" id="comm"></div>
 <h1 class="titulo"><a class="Tit">C</a>omisiones</h1>
-<section class="galeria" id="COMM">
-</section> -->
-
+<section class="galeria2" id="COMM01">
+</section>
+<!-- <hr/>
+<section class="galeria" id="COMM02">
+</section>
+<hr/>
+<section class="galeria" id="COMM03">
+</section>
+<hr/> -->
 
 <div class="sep"  id="work"></div>
 <h1 class="titulo"><a class="Tit">W</a> O R K S</h1>
